@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="height:700px">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+
+      <div class="container">
+
+      <a class="navbar-brand h1 mb-0" href="/">UniPag</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div class="collapse navbar-collapse" id="navbarSite">
+
+          <ul class="navbar-nav ml-auto">
+              {% if logado != 0 %}
+			  {% if logado_classe == 'cliente' %}
+              <li class="nav-item">
+                <a class="nav-link" href="#">Vendas</a>
+              </li>
+			  {% endif%}
+			  {% if logado_classe == 'consumidor' %}
+			  <li class="nav-item">
+                <a class="nav-link" href="#">Compras</a>
+              </li>
+			  {% endif%}
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navDrop">
+                    Conta
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/#">Meu Perfil</a>
+                  <a class="dropdown-item" href="/#">Sair</a>
+                </div>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Meu Perfil</a>
+                  <a class="dropdown-item" href="#">Sair</a>
+                </div>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/login/">Login</a>
+              </li>
+              {% endif %}
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <div class="container-fluid" style="margin-top:80px">
+
+    </div>
+
+</body>
+</html>
