@@ -15,7 +15,7 @@
 
       <div class="container">
 
-      <a class="navbar-brand h1 mb-0" href="/">UniPag</a>
+      <a class="navbar-brand h1 mb-0" href="{% url 'base:index' %}">UniPag</a>
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
         <span class="navbar-toggler-icon"></span>
@@ -24,34 +24,31 @@
         <div class="collapse navbar-collapse" id="navbarSite">
 
           <ul class="navbar-nav ml-auto">
-              {% if logado != 0 %}
-			  {% if logado_classe == 'cliente' %}
-              <li class="nav-item">
-                <a class="nav-link" href="#">Vendas</a>
-              </li>
-			  {% endif%}
-			  {% if logado_classe == 'consumidor' %}
-			  <li class="nav-item">
-                <a class="nav-link" href="#">Compras</a>
-              </li>
-			  {% endif%}
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navDrop">
-                    Conta
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="/#">Meu Perfil</a>
-                  <a class="dropdown-item" href="/#">Sair</a>
-                </div>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Meu Perfil</a>
-                  <a class="dropdown-item" href="#">Sair</a>
-                </div>
-              </li>
-              {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="/login/">Login</a>
-              </li>
+              {% if logado %}
+                {% if logado.tipo == 'cliente' %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Vendas</a>
+                  </li>
+                {% endif%}
+                {% if logado.tipo == 'consumidor' %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Compras</a>
+                  </li>
+                {% endif%}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navDrop">
+                      Conta
+                  </a>
+                  
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Meu Perfil</a>
+                    <a class="dropdown-item" href="{% url 'login:deslogar' %}">Sair</a>
+                  </div>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login:logar' %}">Login</a>
+                </li>
               {% endif %}
 
           </ul>

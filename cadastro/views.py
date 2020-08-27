@@ -23,7 +23,8 @@ class CadastrarConsumidor(generic.View):
         if form.is_valid():
             form.save()
             return redirect('login/logar.html')
-        return render(request, 'cadastrarconsumidor.html', {'error_message': 'Não foi possível efetuar o cadastro'})
+        return render(request, 'cadastro/cadastrarconsumidor.html', {'error_message': 'Não foi possível efetuar o cadastro'})
 
     def get(self, request):
-        return render(request, 'cadastro/cadastrarconsumidor.html', {})
+        form = ConsumidorForm()
+        return render(request, 'cadastro/cadastrarconsumidor.html', {'form': form})

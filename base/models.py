@@ -27,6 +27,9 @@ class Cliente(models.Model):
         
         db_table = 'cliente'
 
+    def tipo(self):
+        return 'cliente'
+
 
 class Consumidor(models.Model):
     id_consumidor = models.AutoField(primary_key=True)
@@ -55,6 +58,9 @@ class Consumidor(models.Model):
     class Meta:
         
         db_table = 'consumidor'
+
+    def tipo(self):
+        return 'consumidor'
 
 
 class EnderecoEntrega(models.Model):

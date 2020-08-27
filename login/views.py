@@ -25,3 +25,8 @@ class LogarView(generic.View):
 
     def get(self, request):
         return render(request, 'login/logar.html', {})
+
+class DeslogarView(generic.View):
+    def get(self, request):
+        logado = False
+        return render(request, 'base/index.html',{})

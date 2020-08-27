@@ -4,9 +4,8 @@
 
 {%block content %}
 
-{{logado}}
       <!-- Main jumbotron for a primary marketing message or call to action -->
-
+  {% if not logado %}
 
     <div class="jumbotron">
       <div class="container">
@@ -23,6 +22,131 @@
         <p><a class="btn btn-primary btn-lg" href="{% url 'cadastro:cadastrarconsumidor' %}" role="button">quero COMPRAR &raquo;</a></p>
       </div>
     </div>
+  {%endif%}
+  {% if logado.tipo == 'cliente' %}
+
+    <section class="jumbotron text-center">
+        <div class="container pt-3">
+              <h1 class="display-3">Bem-vindo a UniPag!</h1>
+          <p>Acompanhe e gerencie as vendas do seu negócio de maneira simples e segura!</p>
+          <p class="lead text-muted"></p>
+          <p>
+            <p><a class="btn btn-primary btn-lg shadow" href="#" role="button">Acompanhar &raquo;</a></p>
+        </div>
+    </section>
+
+    <div class="container">
+
+      <!-- Example row of columns -->
+      <div class="row pt-5">
+        <div class="col-lg-4 lead">
+          <h2>Objetivo</h2>
+          <p>A UniPag é um sistema de gerenciamento de vendas que tem o objetivo de ajudar donos de sites e-commerce a se organizarem, ajudando a gerenciar de maneira otimizada suas vendas para equilíbrio de tempo, custo e qualidade do seu negócio.</p>
+        </div>
+        <div class="col-lg-4 lead">
+          <h2>Funcionalidade</h2>
+          <p>Na UniPag é possível ter um acompanhamento detalhado das vendas realizadas. Além de mostrar dados do pedido, é possível visualizar dados do produto vendido. Dessa forma, os donos de sites e-commerce conseguem obter uma gestão mais completa de suas vendas.</p>
+       </div>
+        <div class="col-lg-4 lead">
+          <h2>Relatório</h2>
+          <p>O sistema possui uma página de relatórios, onde o nosso cliente pode ter acesso a gráficos e pedidos filtrados da maneira que desejar. Com isso a gestão do negócio será otimizada possibilitando um controle mais completo das atividades de vendas do site.</p>
+        </div>
+      </div>
+
+        <!-- Jumbotron -->
+      <div class="jumbotron my-5">
+        <h1>Gestão otimizada!</h1>
+        <p class="lead">Os consumidores buscam um sistema, sofisticado e confiável. Onde não terão problemas ou surpresas desagradáveis durante a compra. Com isso, ter um sistema de gerenciamento de vendas e compras se torna ideal para qualquer tipo de segmento que está relacionado a vendas online de produtos.</p>
+        <p><a class="btn btn-lg btn-success shadow" href="#" role="button">Acesse</a></p>
+      </div>
+
+    </div> <!-- /container -->
+
+    {% endif %}
+    {% if logado.tipo == 'consumidor' %}
+
+        <section class="jumbotron text-center">
+        <div class="container pt-3">
+          <h1 class="display-3">Seja bem-vindo!</h1>
+          <p>Acompanhe e gerencie suas compras de uma forma rápida e eficiente agora mesmo!</p>
+          <p class="lead text-muted"></p>
+          <p>
+            <p><a class="btn btn-primary btn-lg shadow" href="#" role="button">Acompanhar &raquo;</a></p>
+        </div>
+        </section>
+
+
+            <div class="container">
+            <!-- Exemplo de linha de colunas -->
+
+            <div class="row album py-5 bg-light">
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm lead">
+                            <div class="card-body">
+                                <h2>Objetivo</h2>
+                                <p>A UniPag funciona como um sistema de gerenciamento de compras, nele é possível efetuar uma compra e gerenciar suas compras de maneira simples e segura.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm lead">
+                            <div class="card-body">
+                                <h2>Eficiente</h2>
+                                <p>Na UniPag é possível realizar um acompanhamento detalhado das compras realizadas. Onde é possível acompanhar o status do pedido, além de outros dados como data do pedido, forma de pagamento, entre outros.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm lead">
+                            <div class="card-body">
+                                <h2>Adaptável</h2>
+                                <p>A UniPag foi desenvolvida para ser utilizada tanto em computadores como em smartphones. Sempre se adaptando as mudanças no ambiente.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                <hr>
+            </div>
+    </div>
+
+
+    <!-- News jumbotron -->
+    <div class="jumbotron text-center hoverable p-4">
+
+      <!-- Grid row -->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+          <!-- Featured image -->
+          <div class="view overlay">
+            <img src="https://s3.amazonaws.com/kp-blog/wp-content/uploads/2018/09/27121939/vendas-online-estrategias-dicas-para-vender-mais-pela-internet.jpg" class="img-fluid shadow" alt="Sample image for first version of blog listing">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-7 text-md-left ml-3 mt-3">
+
+          <h4 class="h2 mb-4">O que a UniPag oferece?</h4>
+
+          <p class="font-weight-normal lead">A UniPag garante um software eficaz para evitar o desconforto e a demora na hora do pagamento. Garantir a segurança e a confiabilidade aos proprietários de sites que adquirirem nosso sistema, com o objetivo de evitar qualquer tipo de fraude e roubo de informações. </p>
+          <p class="font-weight-normal lead">Buscamos oferecer maior facilidade e flexibilidade, tanto ao proprietário do site quanto ao consumidor, aumentando a produtividade e eficiência na hora da compra. Oferecemos diversas opções de pagamento e métodos de segurança para aqueles que vendem e para aqueles que compram.</p>
+
+        </div>
+        <!-- Grid column -->
+
+      </div>
+      <!-- Grid row -->
+
+    </div>
+<!-- News jumbotron -->
+    {%endif%}
 
   
 {% endblock %}
