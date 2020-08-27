@@ -1,0 +1,40 @@
+{%extends 'base/base.html' %}
+
+  <!--% load crispy_forms_tags %-->
+
+  {%block title %} Cadastro - UniPag {% endblock %}
+
+  {%block content %}
+
+  <style>
+
+      form{
+        background-color:#f1ff00;
+      }
+  </style>
+
+  <div class="row">
+    <div class="col-md-10 offset-1 pt-3">
+      <h1>Crie sua conta na UniPag!</h1>
+      <p>Criando sua conta na UniPag você terá um controle total das vendas realizadas.</p>
+    </div>
+    <div class="col-md-10 offset-md-1 pt-3">
+      <div class="card auth-card">
+        <div class="card-body">
+
+          <form method="post">
+            {% csrf_token %}
+            <!--{ form|crispy }-->
+            {{form}}
+            <div class="card-title text-center">
+                <button type="submit" class="btn btn-success">Cadastrar</button>
+                <input type="button" value="Cancelar" class="btn btn-danger" onClick="history.go(-1)">
+            </div>
+          </form>
+
+         </div>
+       </div>
+    </div>
+  </div>
+
+  {% endblock %}
