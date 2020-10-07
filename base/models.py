@@ -30,6 +30,8 @@ class Cliente(models.Model):
     def tipo(self):
         return 'cliente'
 
+    def __str__(self):
+        return 'Cliente ' + self.razao_social
 
 class Consumidor(models.Model):
     id_consumidor = models.AutoField(primary_key=True)
@@ -56,11 +58,13 @@ class Consumidor(models.Model):
     limite_compra = models.DecimalField(max_digits=10, decimal_places=0, blank=True, null=True)
 
     class Meta:
-        
         db_table = 'consumidor'
 
     def tipo(self):
         return 'consumidor'
+
+    def __str__(self):
+        return 'Consumidor ' + self.nome
 
 
 class EnderecoEntrega(models.Model):
@@ -78,32 +82,6 @@ class EnderecoEntrega(models.Model):
         
         db_table = 'endereco_entrega'
 
-
-class Pedido(models.Model):
-    id_pedido = models.AutoField(primary_key=True)
-    valor = models.DecimalField(max_digits=10, decimal_places=0, blank=True, null=True)
-    parcela = models.CharField(max_length=2, blank=True, null=True)
-    forma_pagamento = models.CharField(max_length=15, blank=True, null=True)
-    status_pedido = models.CharField(max_length=20, blank=True, null=True)
-    data_pedido = models.DateField(blank=True, null=True)
-    consumidor_id_consumidor = models.ForeignKey(Consumidor, models.DO_NOTHING, db_column='consumidor_id_consumidor')
-    cliente_id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='cliente_id_cliente')
-
-    class Meta:
-        
-        db_table = 'pedido'
-
-
-class PedidoProduto(models.Model):
-    quantidade = models.IntegerField()
-    id_produto = models.ForeignKey('Produto', models.DO_NOTHING, db_column='id_produto')
-    id_pedido = models.ForeignKey(Pedido, models.DO_NOTHING, db_column='id_pedido')
-
-    class Meta:
-        
-        db_table = 'pedido_produto'
-
-
 class Produto(models.Model):
     id_produto = models.AutoField(primary_key=True)
     codigo_interno = models.CharField(max_length=20)
@@ -115,3 +93,18 @@ class Produto(models.Model):
     class Meta:
         
         db_table = 'produto'
+
+class Pedido(models.Model):
+    id_pedido = models.AutoField(primary_key=True)
+    valor = models.DecimalField(max_digits=10, decimal_places=0, blank=True, null=True)
+    parcela = models.CharField(max_length=2, blank=True, null=True)
+    forma_pagamento = models.CharField(max_length=15, blank=True, null=True)
+    status_pedido = models.CharField(max_length=20, blank=True, null=True)
+    data_pedido = models.DateField(blank=True, null=True)
+    consumidor_id_consumidor = models.ForeignKey(Consumidor, models.DO_NOTHING, db_column='consumidor_id_consumidor')
+    cliente_id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='cliente_id_cliente')
+    produtos = models.ManyToManyField(Produto)
+
+    class Meta:
+        
+        db_table = 'pedido'

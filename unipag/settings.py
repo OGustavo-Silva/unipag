@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'login',
     'base',
     'cadastro',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'unipag.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # colocar o caminho do mysql
-            'NAME': 'unipag',  # colocar o nome do BD
+            'NAME': 'unipagnovo',  # colocar o nome do BD
             'USER': 'root',
             'PASSWORD': 'root',  # senha
             'HOST': '127.0.0.1',
