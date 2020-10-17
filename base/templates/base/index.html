@@ -3,6 +3,8 @@
 {%block title %} Página inicial - UniPag {% endblock %}
 
 {%block content %}
+{{logado.tipo}}
+{{request.session.id_logado}}
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
   {% if not logado %}
@@ -31,7 +33,7 @@
           <p>Acompanhe e gerencie as vendas do seu negócio de maneira simples e segura!</p>
           <p class="lead text-muted"></p>
           <p>
-            <p><a class="btn btn-primary btn-lg shadow" href="#" role="button">Acompanhar &raquo;</a></p>
+            <p><a class="btn btn-primary btn-lg shadow" href="cliente/homecliente/" role="button">Acompanhar &raquo;</a></p>
         </div>
     </section>
 

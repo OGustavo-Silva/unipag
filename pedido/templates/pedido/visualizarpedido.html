@@ -1,0 +1,13 @@
+{%extends "base/base.html" %}
+
+{% load bootstrap %}
+{%block title %} Pedido - UniPag {% endblock %}
+
+{%block content %}
+
+{{ form|bootstrap }}
+
+<button type="button" class="btn btn-primary">EDITAR</button>
+<a href="javascript:history.back()" type="button" class="btn btn-secondary">VOLTAR</a>
+
+{% endblock %}

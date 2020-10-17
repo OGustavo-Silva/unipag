@@ -27,7 +27,7 @@
               {% if logado %}
                 {% if logado.tipo == 'cliente' %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Vendas</a>
+                    <a class="nav-link" href="/cliente/homecliente/">Vendas</a>
                   </li>
                 {% endif%}
                 {% if logado.tipo == 'consumidor' %}
@@ -41,7 +41,7 @@
                   </a>
                   
                   <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{% url 'base:meuPerfil' %}">Meu Perfil</a>
+                    <a class="dropdown-item" href="{% url 'base:meuPerfil' logado.tipo %}">Meu Perfil</a>
                     <a class="dropdown-item" href="{% url 'login:deslogar' %}">Sair</a>
                   </div>
                 </li>

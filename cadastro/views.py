@@ -2,8 +2,11 @@ from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import HttpResponse, HttpResponseRedirect
 
-from base.models import Consumidor, Cliente
-from .forms import ClienteForm, ConsumidorForm
+from cliente.models import Cliente
+from consumidor.models import Consumidor
+
+from cliente.forms import CadastroClienteForm
+from consumidor.forms import CadastroConsumidorForm
 
 class CadastrarCliente(generic.View):
     def post(self, request):

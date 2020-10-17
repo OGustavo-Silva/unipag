@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'base',
+    'cliente',
+    'consumidor',
     'cadastro',
+    'pedido',
+    'produto',
     'bootstrapform',
 ]
 
