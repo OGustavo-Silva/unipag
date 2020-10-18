@@ -27,12 +27,12 @@
               {% if logado %}
                 {% if logado.tipo == 'cliente' %}
                   <li class="nav-item">
-                    <a class="nav-link" href="/cliente/homecliente/">Vendas</a>
+                    <a class="nav-link" href="{% url 'cliente:homecliente'%}">Vendas</a>
                   </li>
                 {% endif%}
                 {% if logado.tipo == 'consumidor' %}
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Compras</a>
+                    <a class="nav-link" href="{%url 'consumidor:homeconsumidor'%}">Compras</a>
                   </li>
                 {% endif%}
                 <li class="nav-item dropdown">

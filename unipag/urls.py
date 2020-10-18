@@ -22,6 +22,7 @@ urlpatterns = [
     path('login/', include('login.urls')),
     path('cadastro/', include('cadastro.urls')),
     path('cliente/', include('cliente.urls')),
+    path('consumidor/', include('consumidor.urls')),
     path('pedido/', include('pedido.urls')),
     #path('produto/', include('produto.urls')),
 ]

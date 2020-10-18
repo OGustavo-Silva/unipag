@@ -32,4 +32,5 @@ class DeslogarView(generic.View):
     def get(self, request):
         request.session['id_logado'] = 0
         request.session['email_logado'] = False
+        request.session.flush()
         return render(request, 'base/index.html',{})

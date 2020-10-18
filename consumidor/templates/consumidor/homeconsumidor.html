@@ -1,0 +1,77 @@
+{%extends 'base/base.html' %}
+
+{%block title %} Home consumidor - UniPag {% endblock %}
+{%block content %}
+
+<div class="container-fluid pt-2">
+    <div class="row">
+
+
+    <div class="col-md-10 offset-md-1">
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="mr-auto">
+                    <h1 class="page-header">Minhas Compras</h1>
+                </div>
+
+            </div>
+
+            <div class="col-md-14 pt-4">
+                <form method="GET" id="search-form">
+                    <div class="form-group col-md-8 pt-3">
+                        <input class="form-control" type="text" id="search" name="search" placeholder="Pesquisar pedido (VALOR/DATA)"/>
+                        <button class="fas fa-search pt-3" id="search-btn"></button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    </div>
+</div> <!-- /#top -->
+
+<div class="container-fluid pt-3">
+     <div id="list" class="row">
+
+    <div class="table-responsive col-md-12">
+        <table class="table table-striped" cellspacing="0" cellpadding="0">
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Valor</th>
+                    <th>Parcela</th>
+                    <th>Forma de pagamento</th>
+                    <th>Status</th>
+                    <th>Data do pedido</th>
+                    <th class="actions">Ações</th>
+                 </tr>
+            </thead>
+            <tbody>
+                {% for ped in pedido %}
+                <tr>
+                    {% if not pedido%}
+                    <p>Não foi possível localizar dados</p>
+                    {% endif %}
+                    <td>{{ped.id_pedido}}</td>
+                    <td>R$ {{ped.valor}}</td>
+                    <td>{{ped.parcela}}x</td>
+                    <td>{{ped.forma_pagamento}}</td>
+                    <td>{{ped.status_pedido}}</td>
+                    <td>{{ped.data_pedido}}</td>
+                    <td class="actions">
+						<a type="button" href="{% url 'pedido:visualizarpedido' ped.id_pedido %}" class="btn btn-outline-success">Visualizar</a>
+					</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+         </table>
+
+     </div>
+ </div> <!-- /#list -->
+</div>
+
+{% endblock %}
